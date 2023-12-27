@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
-from testapp.models import User
 
 from re import compile, search
 import sqlite3
@@ -28,10 +27,10 @@ def register(request):
     elif request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
+        credit_card = request.POST.get('credit_card')
         username = request.POST.get('username')
         password = request.POST.get('password')
-        credit_card = request.POST.get('credit_card')
-
+        
         """
         BROKEN AUTHENTICATION
 
@@ -44,12 +43,12 @@ def register(request):
         pattern = compile(reg)
         valid = search(pattern, password)
         if not valid:
-            return HttpResponse("Password too weak")
+            return HttpResponse("Password too weak. Password must contain at least eight characters, with at least one lowercase letter, one uppercase letter and one number.")
         """
-
+       
         text = """
-        INSERT INTO users (first_name,last_name,username,password,credit_card,admin) 
-        VALUES  (?,?,?,?,?,?)
+            INSERT INTO users (first_name,last_name,username,password,credit_card,admin) 
+            VALUES  (?,?,?,?,?,?)
         """
 
         conn = sqlite3.connect('db.sqlite')
