@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Project I</title>
+    </head>
+
+    <body>
+      
+      <h2>Welcome!</h2>
+      <a href="/logout">Sign out</a>
+
+      
+      <form method="get" action="/get">
+        <br>
+        <input type="text" name="note">
+        <br><br>
+        <input type="submit" value="Filter notes">
+      </form>
+
+      <form method="get" action="/add">
+        <!-- 
+        CROSS-SITE REQUEST FORGERY
+
+        If user for example visits page /csrf, 
+        it inserts data to database
+
+        Method should be changed to 'post' and csrf token added
+        <form method="post" action="/add">
+        {% csrf_token %} 
+        -->
+        <br>
+        <input type="text" name="note">
+        <br><br>
+        <input type="submit" value="Add note">
+      </form>
+      <br>
+
+      <form method="get" action="/">
+        <input type="submit" value="Get all notes">
+      </form>
+      <br>
+
+      <!-- These are for testing -->
+      
+      <!-- <p>
+        <h3>Users</h3>
+        {% for user in users %}
+        {{ user.0 }} {{ user.3 }}
+        <br>
+        {% endfor %}
+      </p> -->
+      <p>
+        <h3>Notes</h3>
+        {% for note in notes %}
+        {{ note.0 }} - {{ note.1 }}
+        <br>
+        {% endfor %}
+      </p>
+
+    </body>
+
+
+</html>

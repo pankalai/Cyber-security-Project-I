@@ -1,0 +1,25 @@
+<form method="post" action="/register">
+    {% csrf_token %}
+    <p>
+        <label>First name</label>
+        <input type="text" name="first_name" required>
+    </p>
+    <p>
+        <label>Last name</label>
+        <input type="text" name="last_name" required>
+    </p>
+    <p>
+        <label>Credit card</label>
+        <input type="text" name="credit_card" required>
+    </p>
+    <p>
+        <label>Username</label>
+        <input type="text" name="username" required>
+    </p>
+    <p>
+        <label>Password</label>
+        <input type="password" name="password" minlength="5" required>
+    </p>
+
+    <input type="submit" value="Submit">
+  </form>

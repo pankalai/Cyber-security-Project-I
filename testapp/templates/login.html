@@ -1,0 +1,15 @@
+<form method="post" action="/login">
+    {% csrf_token %}
+    <p>
+        <label>Username</label>
+        <input type="text" name="username" required>
+    </p>
+    <p>
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </p>
+
+    <input type="submit" value="Submit">
+  </form>
+
+<a href="/register">Register</a>
