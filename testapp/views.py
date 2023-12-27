@@ -7,22 +7,6 @@ from re import compile, search
 import sqlite3
 
 
-# 1 INJECTION --OK--
-## TRUNCATE TABLE
-
-# 2 BROKEN AUTHENTICATION --OK--
-## NO PASSWORD REQUIREMENTS
-
-# 3 SENSITIVE DATA EXPOSURE --OK--
-## CREDIT CARD NOT ENCRYPTED
-
-# 4 SECURITY MISCONFIGURATION --OK--
-## ADMIN PAGE NOT RESTRICTED TO ADMINS
-
-# 5 CROSS-SITE REQUEST FORGERY --OK--
-## GET METHOD
-
-
 def index(request,notes=None):
     if "user_id" in request.session:
         if not notes:
