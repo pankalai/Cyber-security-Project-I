@@ -21,9 +21,6 @@
         <!-- 
         CROSS-SITE REQUEST FORGERY
 
-        If user for example visits page /csrf, 
-        it inserts data to database
-
         Method should be changed to 'post' and csrf token added
         <form method="post" action="/add">
         {% csrf_token %} 
